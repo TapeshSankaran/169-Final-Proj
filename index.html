@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Infinite Tiling</title>
+    <style>
+        html, body { margin: 0; overflow: hidden; background: #d7749f; }
+    </style>
+</head>
+<body>
+    <container id="body">
+        <container id="directions">
+            <strong>Controls:</strong><br>
+            <em>Movement</em> → WASD<br>
+            <em>Color Mode</em> → "Lighting", r{Noise, Random, Flat}<br>
+            <em>Tile Size</em> → Tile Size(Disp size: 800x800), r[25, 400]<br>
+            <em>Iterations</em> → # of Splits on polygons, r[1, 4]<br>
+            <em>Add/Remove Colors</em> → Add/Remove Colors, r[1, 29]<br>
+            <em>Change Colors</em> → Press on colors on the right side<br>
+
+            <br><br><strong>Recomendations:</strong><br>
+            More iterations lower framerate, so raise tile size<br>to combat that.<br>
+            Darker color combinations work better with the<br>noise function.<br>
+            Less is more color-wise.
+        </container>
+        <container id="showcase">
+            <container id="controls">
+                <container id="right-side">
+                    <container class="right-controls">
+                        <label for="colorMode">Color Mode:</label>
+                        <select id="colorMode" name="Color Mode"></select>                
+                    </container>
+                    <container class="right-controls">
+                        <label for="background">Background:</label>
+                        <input type="file" id="background"></input>
+                    </container>
+                    <container class="right-controls">
+                        <label for="tiling">Tiling Type:</label>
+                        <select id="tiling" name="Tiling Type"></select>
+                    </container>
+                    <container class="right-controls">
+                        <label for="tileSize">Tile Size:</label>
+                        <input type="number" id="tileSize"></input>
+                    </container>
+                    <container class="right-controls">
+                        <label for="iterations">Iterations:</label>
+                        <input type="number" id="iterations"></input>
+                    </container>
+
+                </container>
+                <container id="left-side">
+
+                    <container id="color-buttons">
+                        <button id="rColor" name="Remove Color" class="cButton">Remove Color</button>
+                        <button id="aColor" name="Add Color"    class="cButton">Add Color</button>
+                    </container>
+                </container>
+            </container>
+            <container id="bottom">
+                <div id="bottom-spacer"></div>
+                <container id="canvas-container"></container>
+                <container id="color-container"></container>
+            </container>
+        </container>
+        <div id="spacer"></div>
+    </container>
+<style>
+    #body {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+    }
+
+
+    #directions {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #00000020;
+        padding-bottom: 50px;
+        padding-top: 50px;
+        border: 2px solid #371b2722;
+        width: 30%;
+    }
+    em {
+        font-weight: bold;
+    }
+    strong {
+        font-size: 24px;
+    }
+
+
+    #showcase {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #controls {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: bottom;
+    }
+    #right-side {
+        display: flex;
+        justify-content: center;
+        align-items: bottom;
+    }
+    .right-controls {
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: bottom;
+    }
+    #left-side {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: bottom;
+    }
+    .cButton {
+        margin: 5px;
+    }
+    #color-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: bottom;
+    }
+    input, button, select {
+        color: #271b37;
+        background-color: #efa0c6;
+        border-color: #efa0c3;
+    }
+
+    #bottom {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: top;
+    }
+    #bottom-spacer {
+        width: 50px;
+        margin: 10px;
+        visibility: hidden;
+    }
+    #canvas-container {
+        display: flex;
+        justify-content: center;
+        align-items: bottom;
+    }
+    canvas {
+        border: 5px solid #371b28;
+    }
+    #color-container {
+        margin: 10px;
+        width: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: top;
+        align-items: center;
+    }
+
+
+    #spacer {
+        width: 30%;
+        visibility: hidden;
+    }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+<script src="tiling.js"></script>
+<script src="world.js"></script>
+<script src="InputHandle.js"></script>
+<script src="sketch.js"></script>
+</body>
+</html>
