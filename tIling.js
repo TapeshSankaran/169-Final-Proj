@@ -1,4 +1,4 @@
-// Tiling logic from: https://geometricolor.wordpress.com/2012/05/16/an-efficient-iterative-method-for-the-ammann-beenker-tiling/
+// Tiling logics from: https://geometricolor.wordpress.com/2012/05/16/an-efficient-iterative-method-for-the-ammann-beenker-tiling/
 
 class BaseTiling {
     constructor(iterations = 1, tileSize = 100) {
